@@ -309,6 +309,7 @@ Java
 
 The `akka.pattern.BackoffOnFailureOptions` and `akka.pattern.BackoffOnRestartOptions` can be used to customize the behavior of the back-off supervisor actor.
 Options are:
+
 * `withAutoReset`: The backoff is reset if no failure/stop occurs within the duration. This is the default behaviour with `minBackoff` as default value
 * `withManualReset`: The child must send `BackoffSupervisor.Reset` to its backoff supervisor (parent)
 * `withSupervisionStrategy`: Sets a custom `OneForOneStrategy` (as each backoff supervisor only has one child). The default strategy uses the `akka.actor.SupervisorStrategy.defaultDecider` which stops and starts the child on exceptions.
@@ -316,6 +317,7 @@ Options are:
 * `withReplyWhileStopped`: By default all messages received while the child is stopped are forwarded to dead letters. With this set, the supervisor will reply to the sender instead.
 
 Only available on `BackoffOnStopOptions`:
+
 * `withDefaultStoppingStrategy`: Sets a `OneForOneStrategy` with the stopping decider that stops the child on all exceptions.
 * `withFinalStopMessage`: Allows to define a predicate to decide on finally stopping the child (and supervisor). Used for passivate sharded actors - see above.
 
